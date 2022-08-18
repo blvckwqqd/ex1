@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.todo-btn{
+ background-color: bisque;
+ border: 2px solid rebeccapurple;
+ width: 70px;
+ height: 50px;
+ font-weight: bold;
+ border-radius: 10px;
+}
+.todo-btn:hover{
+    background-color: aqua;
+    border-radius: 10px;
+}
+.todo-list li{
+    padding: 5px;
+    margin: 5px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.todo-list{
+    list-style-type: none;
+}
+.content{
+    margin: 5px;
+    width: 500px;
+    padding: 5px;
+    display: inline;
+    border: 1px solid black;
+    background-color: azure;
+}
+.handler{
+    width: 500px;
+    height: 50px;
+    margin: 5px;
+    padding: 5px;
+    display: inline;
+    border: 1px solid black;
+    background-color: beige;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+
