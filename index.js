@@ -1,57 +1,74 @@
 "use strict";
 //let counter = 0;
 const todo = [
-  { text: "Пообедать", done: true, color: "yellow" },
-  { text: "Сделать практику", done: false },
+  //   { text: "Пообедать", done: true, color: "yellow" },
+  //   { text: "Сделать практику", done: false },
 ];
-
-
-const addTodo = () => {
-  let text = window.prompt("Что хотите сделать?", "");
-  //let color = window.prompt("Какой цвет", "");
-  todo.push({text: text, done:false});
-  render()
-};
-
+let selectedItem;
 
 const render = () => {
-    let list = document.getElementsByClassName("todo-list")[0];
-    list.innerHTML = '';
-    todo.forEach((item) =>{
-        let li = document.createElement("li");
-        //console.log(item);
-        li.textContent = item.text;
-        li.style.backgroundColor = item.color != undefined ? item.color : "";
-        li.className = "todo-list item";
-        list.append(li);
-    })
-}
-const deleteTodo = () =>{
-    let text = window.prompt("Кого удалить?", "");
-    for(let item of todo){
-        //console.log(item);
-        if(item.text == text.toString()){
-            todo.splice(todo.indexOf(item),1);
-            console.log(todo);
-            break;
-        }
-    }
-    render();
-}
+  let list = document.getElementsByClassName("todo-list")[0];
+  let dataIndex = 0;
+  list.innerHTML = "";
+  for (let item of todo) {
+    let li = document.createElement("li");
+    li.textContent = item.text;
+    li.style.backgroundColor = item.color != undefined ? item.color : "";
+    li.className = "todo-list item";
+    li.setAttribute("data-index", dataIndex++);
 
-
-
-
-
-
-
-const addItem = () => {
-    let inputText = document.querySelector(".todo-input");
-    let list = document.querySelector(".todo-list");
-    let item = document.createElement("li");
-    item.className = "todo-list item";
-    //item.id = "item"+counter;
-    item.textContent = inputText.value;
-    list.append(item);
-    inputText.value = "";
+    let input = document.createElement("input");
+    input.type = "checkbox";
+    input.className = "todo-list item check";
+    input.onchange = (e) => {
+      if (input.checked) {
+      }
+    };
+    li.append(input);
+    list.append(li);
+  }
+  // Обработчик нажатия по списку
+  list.onclick = function (e) {
+    let target = e.target;
+    if (target.tagName != "LI") return;
+    setActive(target);
   };
+};
+
+// Удалить элемент
+const deleteTodo = () => {
+  if(selectedItem) todo.splice(selectedItem.dataset.index,1);
+  else todo.pop;
+  render();
+};
+
+// Добавить элемент
+const addTodo = () => {
+  let text = window.prompt("Что хотите сделать?", "");
+  if (!text) return;
+  //let color = window.prompt("Какой цвет", "");
+  let elem = { text: text, done: false };
+  if(selectedItem) todo.splice(parseInt(selectedItem.dataset.index)+1,0,elem);
+  else todo.push(elem);
+
+  render();
+};
+
+// Поднять элемент
+const moveUpTodo = () =>{
+
+}
+
+// Опустить элемент
+const moveDownTodo = () =>{
+
+}
+// Сделать элемент активным
+function setActive(li) {
+  if (selectedItem) {
+    selectedItem.classList.remove("active");
+  }
+  selectedItem = li;
+  selectedItem.classList.add("active");
+  //console.log(selectedItem);
+}
