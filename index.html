@@ -14,13 +14,19 @@
       </div>
       <div class="handler">
         <button class="todo-btn add" onclick="addTodo()">Добавить</button>
-        <button class="todo-btn change" onclick="alert('Still not working')">Изменить</button>
+        <button class="todo-btn change" onclick="editTodo()">Изменить</button>
         <button class="todo-btn delete" onclick="deleteTodo()">
           Удалить
         </button>
-        <button class="todo-btn up">Вверх</button>
-        <button class="todo-btn down">Вниз</button>
+        <button class="todo-btn up" onclick="moveUpTodo()">Вверх</button>
+        <button class="todo-btn down" onclick="moveDownTodo()">Вниз</button>
       </div>
+    </div>
+    <div class="input-props" hidden="">
+      <input class="input-name" type="text" placeholder="Название...">
+      <input class="input-color" type="text" placeholder="Цвет...">
+      <button class="props-change" onclick="">Изменить</button>
+      <button class="props-cancel" onclick="">Отмена</button>
     </div>
 
     <script src="index.js"></script>
