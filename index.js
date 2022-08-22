@@ -47,13 +47,13 @@ const render = () => {
         dataIndex++;
     }
     //TODO Добавить адекватный обработчик checkbox
-    let input = document.getElementsByClassName('checked');
-    input.onchange = (e) =>{
-        let item = e.target.closest('Todo-list item');
-        item.done = input.checked;
-        //console.log(item);
-        saveToStorage();
-    }
+    // let input = document.getElementsByClassName('checked');
+    // input.onchange = (e) =>{
+    //     let item = e.target.closest('Todo-list item');
+    //     item.done = input.checked;
+    //     //console.log(item);
+    //     saveToStorage();
+    // }
     // Обработчик нажатия по списку
     list.onclick = function (e) {
         let target = e.target;
