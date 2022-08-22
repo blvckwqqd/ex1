@@ -1,59 +1,96 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
-.todo-btn{
- background-color: bisque;
- border: 2px solid rebeccapurple;
- width: 70px;
- height: 50px;
- font-weight: bold;
- border-radius: 10px;
+
+.Button {
+    background-color: #9ED2C6;
+    border: 2px solid #54BAB9;
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 15px;
 }
-.todo-btn:hover{
-    background-color: rgb(155, 229, 159);
+
+.Button:hover {
+    background-color: #54BAB9 !important;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.6)!important;
 }
-.todo-list li{
-    padding: 5px;
-    margin: 5px 15px;
-    border: 1px solid black;
+
+.Todo-list li {
+    padding: 15px;
+    margin: 15px 15px;
+    width: 700px;
+    font-size: 1.7rem;
+    background-color: #9ED2C6;
+    border: 2px solid #54BAB9;
     border-radius: 10px;
 }
-.todo-list li:hover{
-    background-color: rgb(255, 179, 179);
+
+.Todo-list li:hover {
+    box-shadow: 0 4px 4px 2px #9ED2C6;
+    background-color: #54BAB9;
 }
-.todo-list .active{
-    background-color: rgb(255, 161, 161);
-    box-shadow: 3px 3px black;
+
+.Todo-list .active {
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.6);
 }
-.check{
+
+.Todo-list {
+    list-style-type: none;
+}
+
+.check {
     width: 15px;
     height: 15px;
     display: inline-flex;
+    align-self: flex-end;
+
     margin-left: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
-    
-}
-.todo-list{
-    list-style-type: none;
-}
-.content{
-    margin: 5px;
-    width: 500px;
-    padding: 5px;
-    display: inline;
-    border: 1px solid black;
-    background-color: azure;
-}
-.handler{
-    margin: 5px;
-    padding: 5px;
-    flex-direction: column;
-    border: 1px solid black;
-    background-color: beige;
-}
-.container{
-    display: flex;
 }
 
+.Content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #54BAB9;
+    background-color: #F7ECDE;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.26);
+}
+
+.Event {
+    margin: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #54BAB9;
+    background-color: #F7ECDE;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.26);
+}
+
+.Container {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.Input-props {
+    display: none;
+    flex-direction: column;
+    background-color: #F7ECDE;
+    border: 1px solid #54BAB9;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.26);
+    border-radius: 5px;
+}
+
+.Input {
+    height: 30px;
+    border: 1px solid #54BAB9;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.26);
+}
