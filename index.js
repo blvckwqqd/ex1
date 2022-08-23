@@ -5,10 +5,10 @@ let selectedItem;
 let selectedItemIndex = selectedItem?.dataset?.index;
 
 window.onload = () => {
+    if(!window.localStorage.getItem('todo')) return;
     todo = JSON.parse(window.localStorage.getItem('todo'));
     render();
 }
-
 
 
 const render = () => {
@@ -42,11 +42,11 @@ const render = () => {
     }
 
     // Обработчик нажатия по списку
-    list.onclick = function (e) {
+    list.onclick = (e) => {
         let target = e.target;
 
         if(target.tagName == 'INPUT'){
-            let item = target.closest('li');
+            let item = target.parentElement;
             todo[parseInt(item.dataset.index)]['done'] = target.checked;
             saveToStorage();
         }else if(target.tagName == 'LI'){
@@ -144,7 +144,7 @@ const editTodo = () => {
         let inputName = document.getElementsByClassName('Input name')[0];
         let inputColor = document.getElementsByClassName('Input color')[0];
 
-        if (!inputName) return;
+        //if (!inputName) return;
 
         let index = parseInt(selectedItem.dataset.index);
 
@@ -154,7 +154,6 @@ const editTodo = () => {
 
         div.style.display = 'none';
         inputName.value = '';
-        inputColor.value = '';
 
         saveToStorage();
         render();
@@ -172,9 +171,8 @@ const editTodo = () => {
 
 // Сделать элемент активным
 function setActive(li) {
-    if (selectedItem) {
-        selectedItem.classList.remove("active");
-    }
+    if(selectedItem == li) return;
+    if (selectedItem) selectedItem.classList.remove("active");
     selectedItem = li;
     selectedItem.classList.add("active");
     //console.log(selectedItem);

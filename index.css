@@ -15,7 +15,7 @@
 
 .Button:hover {
     background-color: #54BAB9 !important;
-    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.6)!important;
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.6);
 }
 
 .Todo-list li {
@@ -93,4 +93,12 @@
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.26);
+}
+
+.color {
+    align-self: center;
+    width: 70%;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
