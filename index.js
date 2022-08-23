@@ -30,12 +30,6 @@ const render = () => {
         input.type = "checkbox";
         input.className = "Todo-list item check";
         input.checked = item.done;
-        // Обработка checked
-        input.onchange = (e) => {
-            item.done = input.checked;
-            //console.log(item);
-            saveToStorage();
-        };
 
         li.append(input);
         list.append(li);
@@ -46,19 +40,20 @@ const render = () => {
         }
         dataIndex++;
     }
-    //TODO Добавить адекватный обработчик checkbox
-    // let input = document.getElementsByClassName('checked');
-    // input.onchange = (e) =>{
-    //     let item = e.target.closest('Todo-list item');
-    //     item.done = input.checked;
-    //     //console.log(item);
-    //     saveToStorage();
-    // }
+
     // Обработчик нажатия по списку
     list.onclick = function (e) {
         let target = e.target;
-        if (target.tagName != "LI") return;
-        setActive(target);
+
+        if(target.tagName == 'INPUT'){
+            let item = target.closest('li');
+            todo[parseInt(item.dataset.index)]['done'] = target.checked;
+            saveToStorage();
+        }else if(target.tagName == 'LI'){
+            setActive(target);
+        }else{
+            return;
+        }    
     };
 };
 
